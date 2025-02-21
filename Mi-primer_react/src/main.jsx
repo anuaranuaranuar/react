@@ -1,10 +1,12 @@
-import React, { StrictMode } from 'react'
+import React, { StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { App } from './App.jsx'
 import { TwitterFollow } from './twiter-follow.jsx'
 
-const format = (userName) => "@" + userName
+//podemos usar arrays en los props pero es complejo a la hora de manejar y entender datos
+const arrays = { userName: "tyler"}
+const format = (userName) => "@" + userName 
 const root = createRoot(document.getElementById('root'))
 root.render(
 
@@ -12,31 +14,35 @@ root.render(
     <div className='App'>
       <TwitterFollow
         formatUserName={format}
-        isFollowing
-        userName="Anuar">
+       {... arrays}
+       >
         Anuar Parejo
       </TwitterFollow>
-
+{/*asi comento aqui*/ }
       <TwitterFollow
         formatUserName={format}
-        isFollowing={false}
-        userName="Sofia" >
-        Sofia Aldana
+        
+        userName="will" >
+        {name}
       </TwitterFollow>
 
       <TwitterFollow
         formatUserName={format}
-        isFollowing={false}
-        userName="Catalina">
+       
+        userName="steve">
        
       </TwitterFollow>
 
       <TwitterFollow
         formatUserName={format}
-        isFollowing
-        userName="Robinson">
+       
+        userName="marco">
         Robinson Aldana
       </TwitterFollow>
+
+      <button onClick={()=> setName("pedromichel")} >
+        Cambiar nombre
+      </button>
     </div>
 
   </>

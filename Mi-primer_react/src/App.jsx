@@ -1,6 +1,8 @@
 import "./App.css" 
 
 export function App() { //creo una funcion componente para mostrar en main.jsx
+  
+ 
   return (
     //los estilos en linea se ponen como un objecto <article style={{display : "flex"}}>
     //se utiliza className en lugar de class para declarar una clase ya que class es reservada 

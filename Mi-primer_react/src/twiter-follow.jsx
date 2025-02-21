@@ -1,5 +1,27 @@
-export function TwitterFollow({ children="Default", formatUserName, userName="Default", isFollowing }) {
+//hook (utilidad) permite añadir funcionaledades dependiendo de eventos 
+import { useState } from "react"; //useState(false) asi le damos un valor inicial
+
 // los props deben llevar valores por defecto en linea a la funcion userName="Default"
+export function TwitterFollow({ children = "Default", formatUserName, userName = "Default"}) {
+    const [isFollowing, setIsFollowing] = useState(false); //abreviacion de las 3 lineas comentadas abajo
+    /*
+    const STATE = useState(false) //devuelve un array de estados
+    const isFollowing= state[0]; //valor del estado
+    const setIsFollowing= state[1] // en esta pocision tenemos una funcion para actualizar el estado
+    */
+    
+    // declaramos una variable para el texto del boton, que depende de su estado boleano
+    const text = isFollowing ? "Siguiendo" : "Seguir";
+    // variable para cambiar la clase del boton
+    const buttonClaseName = isFollowing 
+    ? "tw-followCard-button is-following"
+    : "tw-followCard-button"
+   
+
+
+    const handleClick = () => { //funcion para cambiar estado
+        setIsFollowing(!isFollowing) // el parametro es el valor que queremos asignar
+    }
 
     return (
         //los estilos en linea se ponen como un objecto <article style={{display : "flex"}}>
@@ -24,8 +46,8 @@ export function TwitterFollow({ children="Default", formatUserName, userName="De
             </header>
 
             <aside>
-                <button className="tw-followCard-button">
-                    {isFollowing}
+                <button className={buttonClaseName} onClick={handleClick}>
+                    {text}
 
                 </button>
             </aside>
