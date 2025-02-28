@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary:var(--color-red-300);
+  --color-secondary: #F8F9FA;
+  
+}
+
+.shadow{
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
